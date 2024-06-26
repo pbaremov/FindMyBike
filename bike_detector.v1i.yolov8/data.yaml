@@ -1,0 +1,13 @@
+train: C:\Users\Petko\Documents\University\Final Project\SoftwareEvidence\bike_detector.v1i.yolov8\train
+val: C:\Users\Petko\Documents\University\Final Project\SoftwareEvidence\bike_detector.v1i.yolov8\valid
+test: C:\Users\Petko\Documents\University\Final Project\SoftwareEvidence\bike_detector.v1i.yolov8\test
+
+nc: 1
+names: ['bicycle']
+
+roboflow:
+  workspace: bikedetector
+  project: bike_detector-ki6j2
+  version: 1
+  license: Private
+  url: https://app.roboflow.com/bikedetector/bike_detector-ki6j2/1

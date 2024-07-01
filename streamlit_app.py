@@ -30,7 +30,7 @@ project_version = col3.text_input("Provide your project version")
 
 # load the detector
 
-print(api_key)
+# print(api_key)
 
 # upload your images
 # photo = st.file_uploader(type=["png, jpeg, jpg"], label="upload your file")
@@ -59,11 +59,11 @@ while True:
             "front_photo": front_tags[n],
             "images": images,
         }
-        print(f"bike number {n}")
+        # print(f"bike number {n}")
         n += 1
-        print(f'Len(bike[images]) is {len(bike["images"])}')
+        # print(f'Len(bike[images]) is {len(bike["images"])}')
 
-        print(bike)
+        # print(bike)
 
         # for image in images:
         #     display_bicycles_only(image)

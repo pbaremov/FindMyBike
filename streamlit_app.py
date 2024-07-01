@@ -1,9 +1,11 @@
 from getbikes import bikes_list, get_bikes, get_images_titles, front_tags
+
 # from robo_detector import robo_detector
 
 
 import streamlit as st
-from st_picture_carousel import st_picture_carousel
+from streamlit_image_select import image_select
+from streamlit_carousel import carousel
 
 
 st.set_page_config(layout="wide", page_title="FindMyBike WebApp", page_icon=None)
@@ -11,7 +13,7 @@ st.set_page_config(layout="wide", page_title="FindMyBike WebApp", page_icon=None
 # title
 st.title("Find your bicycle on pinkbike.com")
 
-
+st.write("[https://roboflow.com/](https://roboflow.com/)")
 # header
 st.header("Please provide details of your RoboFlow detector model")
 
@@ -22,6 +24,7 @@ api_key = col1.text_input("Provide your API key")
 project_name = col2.text_input("Provide your project name")
 project_version = col3.text_input("Provide your project version")
 
+
 # save your detector // this may be optional
 
 
@@ -30,7 +33,7 @@ project_version = col3.text_input("Provide your project version")
 print(api_key)
 
 # upload your images
-photo = st.file_uploader(type=["png, jpeg, jpg"], label="upload your file")
+# photo = st.file_uploader(type=["png, jpeg, jpg"], label="upload your file")
 
 
 # include some sort of a progress bar
@@ -47,27 +50,21 @@ while True:
     i += 1
 
     n = 0
-    for i in bikes_list:
-        images, title = get_images_titles(i)
+    for j in bikes_list:
+        images, title = get_images_titles(j)
 
         bike = {
             "title": title,
-            "url": i,
+            "url": j,
             "front_photo": front_tags[n],
             "images": images,
         }
-        print(n)
+        print(f"bike number {n}")
         n += 1
-        print(len(bike["images"]))
+        print(f'Len(bike[images]) is {len(bike["images"])}')
 
         print(bike)
 
-        st.image(
-            caption=bike["title"],
-            image=bike["front_photo"],
-        )
-        st.image(image=bike["images"])
-        st.link_button(label=bike["title"], url=bike["url"])
         # for image in images:
         #     display_bicycles_only(image)
         # print(get_front_image(i))
@@ -76,13 +73,28 @@ while True:
 
         # make predictions
 
-        # image_carousel = st_picture_carousel(img_list=images)
+        #     for i in images:
+        # #         result = robo_detector(i)
+        # #         print(result)
+        #         st_picture_carousel(images)
+        # # #
 
-    #     for i in images:
-    # #         result = robo_detector(i)
-    # #         print(result)
-    #         st_picture_carousel(images)
-    # # #
+        # display the results
+        with st.container():
+            st.write("this are your predictions")
+            st.image(
+                caption=bike["title"],
+                image=bike["front_photo"],
+                width=500,
+            )  # this displays the front photo0,
 
+            # st.image(image=bike["images"])  # this displays the list of internal images
+            st.link_button(
+                label=bike["title"], url=bike["url"]
+            )  # this button is a link to the web page of the bicycle
 
-    # display the results
+        # if len(bike["images"]) != 0:
+        #     img = image_select(
+        #         label=bike["title"],
+        #         images=bike["images"],
+        #     )

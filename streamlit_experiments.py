@@ -1,6 +1,5 @@
 import time
 import streamlit as st
-from st_picture_carousel import st_picture_carousel
 
 with st.status("Downloading data..."):
     st.write("Searching for data...")
@@ -11,17 +10,6 @@ with st.status("Downloading data..."):
     time.sleep(1)
 
 st.button("Rerun")
-
-
-
-value = st_picture_carousel()
-
-st.write(value)
-
-
-
-
-
 
 
 # import streamlit as st

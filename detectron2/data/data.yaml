@@ -1,0 +1,13 @@
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 1
+names: ['bicycle']
+
+roboflow:
+  workspace: bikedetector
+  project: bike_detector_2
+  version: 3
+  license: Public Domain
+  url: https://universe.roboflow.com/bikedetector/bike_detector_2/dataset/3
